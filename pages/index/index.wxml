@@ -8,7 +8,7 @@
     </block>
     <button bindtap="showAR">AR摄像头</button>
   </view>
-  <div wx:if="{{showCamera}}" device-position="back" flash="off" binderror="error" class="cameraBox" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" bindtouchcancel="touchCancel" bindlongtap="longTap" bindtap="tap">
+  <camera wx:if="{{showCamera}}" device-position="back" flash="off" binderror="error" class="cameraBox" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" bindtouchcancel="touchCancel" bindlongtap="longTap" bindtap="tap">
     <div class="scene">
       <div class="cubeBox" style="transform: translate3d(0, 0, 500px) rotateX({{yRotation}}deg) rotateY({{xRotation}}deg) rotateZ(0deg);">
         <!-- <div class="cubeBox" style="transform: translate3d(0, 0, 500px) rotateX({{dy}}deg) rotateY({{-dx}}deg) rotateZ(0deg) scale3d(1, 1, 1);"> -->
@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </camera>
   <view class="btn-area">
     <button type="primary" bindtap="takePhoto">拍照</button>
   </view>

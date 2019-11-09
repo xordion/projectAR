@@ -99,26 +99,26 @@ Page({
     })
     this.ctx = wx.createCameraContext()
 
-    // wx.startGyroscope({
-    //   interval: 'game',
-    //   success:(response)=>{
-    //     // console.log(response)
-    //     wx.onGyroscopeChange((res)=> {//陀螺仪{x,y,z}
-    //     let angleFormat = (rad)=>{
-    //       return rad *180 / Math.PI /(1000/20)
-    //     }
-    //       // let x = angleFormat(res.x), 
-    //       // y=angleFormat(res.y), 
-    //       // z=angleFormat(res.z)
-    //       // if(Math.abs(x)>=90 || Math.abs(y)>=90 || Math.abs(z)>=90){
-    //       //   console.info(new Date(), x,y,z);
-    //       // }
-    //       this.setData({
-    //         yRotation: this.data.yRotation + angleFormat(res.x)
-    //       })
-    //     })
-    //   }
-    // })
+    wx.startGyroscope({
+      interval: 'game',
+      success:(response)=>{
+        // console.log(response)
+        wx.onGyroscopeChange((res)=> {//陀螺仪{x,y,z}
+        let angleFormat = (rad)=>{
+          return rad *180 / Math.PI /(1000/20)
+        }
+          // let x = angleFormat(res.x), 
+          // y=angleFormat(res.y), 
+          // z=angleFormat(res.z)
+          // if(Math.abs(x)>=90 || Math.abs(y)>=90 || Math.abs(z)>=90){
+          //   console.info(new Date(), x,y,z);
+          // }
+          this.setData({
+            yRotation: this.data.yRotation + angleFormat(res.x)
+          })
+        })
+      }
+    })
 
     wx.onCompassChange((res) => {//罗盘
       // console.info('campass' + JSON.stringify(res))
@@ -128,19 +128,19 @@ Page({
       })
     })
 
-    wx.startDeviceMotionListening({
-      interval: "game",
-      success: (res) => {
-        // console.log(res)
-        wx.onDeviceMotionChange(response => {
-          console.log(response)
-          this.setData({
-            // xRotation: -response.alpha,
-            yRotation: response.beta-90
-          })
-        })
-      }
-    })
+    // wx.startDeviceMotionListening({
+    //   interval: "game",
+    //   success: (res) => {
+    //     // console.log(res)
+    //     wx.onDeviceMotionChange(response => {
+    //       console.log(response)
+    //       this.setData({
+    //         // xRotation: -response.alpha,
+    //         yRotation: response.beta-90
+    //       })
+    //     })
+    //   }
+    // })
 
   },
 
